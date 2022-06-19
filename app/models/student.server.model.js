@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 // Define a new 'StudentSchema'
 var StudentSchema = new Schema({
-    studendID:{type:String, unique:true, required: true},
+    studentID:{type:String, unique:true, required: true},
     studentFirstName: String,
     studentLastName: String,
     studentEmail:{type:String,
