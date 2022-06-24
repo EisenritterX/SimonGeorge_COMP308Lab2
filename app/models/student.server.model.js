@@ -29,7 +29,7 @@ var StudentSchema = new Schema({
 })
 
 // Set the 'fullname' virtual property
-UserSchema.virtual('studentFullName').get(function() {
+StudentSchema.virtual('studentFullName').get(function() {
 	return this.studentFirstName + ' ' + this.studentLastName;
 }).set(function(studentFullName) {
 	const splitName = studentFullName.split(' ');
@@ -39,21 +39,21 @@ UserSchema.virtual('studentFullName').get(function() {
 
 // Use a pre-save middleware to hash the password
 // before saving it into database
-UserSchema.pre('save', function(next){
+StudentSchema.pre('save', function(next){
 	//hash the password before saving it
 	this.password = bcrypt.hashSync(this.password, saltRounds);
 	next();
 });
 
 // Create an instance method for authenticating user
-UserSchema.methods.authenticate = function(password) {
+StudentSchema.methods.authenticate = function(password) {
 	//compare the hashed password of the database 
 	//with the hashed version of the password the user enters
 	return this.password === bcrypt.hashSync(password, saltRounds);
 };
 
 // Configure the 'UserSchema' to use getters and virtuals when transforming to JSON
-UserSchema.set('toJSON', {
+StudentSchema.set('toJSON', {
 	getters: true,
 	virtuals: true
 });

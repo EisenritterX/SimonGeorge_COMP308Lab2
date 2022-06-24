@@ -1,4 +1,4 @@
-const students = require('../app/controllers/students.server.controller');
+const students = require('../controllers/students.server.controller');
 const courses = require('../controllers/courses.server.controller');
 //
 module.exports = function (app) {
@@ -8,9 +8,9 @@ module.exports = function (app) {
         //
         app.route('/api/courses/:courseID')
             .get(courses.read)
-            .put(students.requiresLogin, students.hasAuthorization, courses.
+            .put(students.requiresLogin, courses.hasAuthorization, courses.
                 update)
-            .delete(students.requiresLogin, students.hasAuthorization, courses.
+            .delete(students.requiresLogin, courses.hasAuthorization, courses.
                 delete);
         //
         app.param('courseID', courses.courseByID);
