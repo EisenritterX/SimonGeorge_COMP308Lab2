@@ -5,12 +5,27 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 // Define a new 'StudentSchema'
 var StudentSchema = new Schema({
-    studentID:{type:String, unique:true, required: true},
+    studentNumber:{type:Number, unique:true, required: true, validate:[
+        (studentNumber)=> studentNumber && studentNumber.length ==9,
+        'Student Number has to be 9 digits'
+    ]},
     studentFirstName: String,
     studentLastName: String,
+    studentPhone:{type:String,
+        validate: {
+        validator: function(v) {
+          return /\d{3}-\d{3}-\d{4}/.test(v);
+        },
+        message: props => `${props.value} is not a valid phone number!`
+      },
+      required: [true, 'User phone number required']
+    },
     studentEmail:{type:String,
     //email validation format
     match: [/.+\@.+\..+/, "Please fill a valid email address"]
+    },
+    studentProgram:{
+        type:String
     },
     password:{
         type:String,

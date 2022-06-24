@@ -93,7 +93,7 @@ exports.studentByID = function (req, res, next, id) {
 //update a student by id
 exports.update = function(req, res, next) {
     console.log(req.body);
-    User.findByIdAndUpdate(req.student.id, req.body, function (err, student) {
+    Student.findByIdAndUpdate(req.student.id, req.body, function (err, student) {
       if (err) {
         console.log(err);
         return next(err);
@@ -104,7 +104,7 @@ exports.update = function(req, res, next) {
 
 // delete a student by id
 exports.delete = function(req, res, next) {
-    User.findByIdAndRemove(req.student.id, req.body, function (err, student) {
+    Student.findByIdAndRemove(req.student.id, req.body, function (err, student) {
       if (err) return next(err);
       res.json(student);
     });
@@ -115,12 +115,12 @@ exports.delete = function(req, res, next) {
 exports.authenticate = function(req, res, next) {
 	// Get credentials from request
 	console.log(req.body)
-	const username = req.body.auth.studentID;
+	const studentID = req.body.auth.studentId;
 	const password  = req.body.auth.password;
 	console.log(password)
-	console.log(username)
+	console.log(studentID)
 	//find the user with given username using static method findOne
-	User.findOne({studentID: studentID}, (err, student) => {
+	Student.findOne({studentNumber: studentID}, (err, student) => {
 			if (err) {
 				return next(err);
 			} else {
