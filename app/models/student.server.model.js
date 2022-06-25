@@ -11,6 +11,9 @@ var StudentSchema = new Schema({
     ]},
     studentFirstName: String,
     studentLastName: String,
+    address: String,
+    city: String,
+    
     studentPhone:{type:String,
         validate: {
         validator: function(v) {

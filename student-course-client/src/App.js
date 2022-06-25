@@ -21,6 +21,7 @@ import logo from './logo.svg';
 import './App.css';
 import Home from './components/Home';
 import Login from './components/Login';
+import Student from './components/Student';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
             <Nav className="mr-auto">
               <Nav.Link as={Link} to="/home" >Home</Nav.Link>
               <Nav.Link as={Link} to="/login">Login</Nav.Link>
+              <Nav.Link as={Link} to="/student">Student</Nav.Link>
               {/*<Nav.Link as={Link} to="/list">List of Users</Nav.Link>
               <Nav.Link as={Link} to="/listarticles">List of Articles</Nav.Link>
               <Nav.Link as={Link} to="/create">Sign Up</Nav.Link> */}
@@ -51,6 +53,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="home" element={<Home />} />         
           <Route path="login" element= {< Login />}  />
+          <Route path="student" element= {< Student />}  />
           {/* <Route path="create" element ={< CreateUser />} />
           <Route path="list" element= {< List />}  />
           <Route path="listarticles" element= {< ListArticles />}  />
