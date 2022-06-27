@@ -37,10 +37,10 @@ const getErrorMessage = function (err) {
 exports.create = function (req, res, next) {
   // Create a new instance of the 'User' Mongoose model
   var student = new Student(req.body); //get data from React form
-  console.log("body: " + req.body.studentID);
+  console.log("body: " + req.body.studentNumber);
 
   // Use the 'User' instance's 'save' method to save a new user document
-  user.save(function (err) {
+  student.save(function (err) {
     if (err) {
       // Call the next middleware with an error message
       return next(err);

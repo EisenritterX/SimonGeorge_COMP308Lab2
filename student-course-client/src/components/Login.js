@@ -75,13 +75,10 @@ function App() {
                 <Form.Label>Password:</Form.Label>
                 <Form.Control  type="password" name="password" id="password" placeholder="Enter password" onChange={e => setPassword(e.target.value)} />
               </Form.Group>
-          
               <Button size = "lg" variant="primary" type="Button" onClick={authenticateUser}>
                 Login
               </Button>
             </Form>
-
-
         </div>
         : <View screen={screen} setScreen={setScreen} />
       }

@@ -15,7 +15,7 @@ function List(props) {
   const [showLoading, setShowLoading] = useState(true);
   const [listError, setListError] = useState(false);
   //
-  const apiUrl = "http://localhost:3000/tasks";
+  const apiUrl = "http://localhost:3000/courses";
   const fetchData = async () => {
     axios.get(apiUrl)
       .then(result => {
@@ -42,7 +42,7 @@ function List(props) {
       priorityArea: item.priorityArea,dateTime: item.dateTime, cancelled: item.cancelled };
     console.log('task to delete:', task)
     //
-    const apiUrlDelete = "http://localhost:3000/tasks/" + id;
+    const apiUrlDelete = "http://localhost:3000/courses/" + id;
     console.log('url:',apiUrlDelete)
     //
     axios.delete(apiUrlDelete, task)
