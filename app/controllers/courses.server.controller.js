@@ -24,7 +24,7 @@ exports.create = function (req, res) {
     console.log(req.body)
     //
     //
-        article.save((err) => {
+        course.save((err) => {
             if (err) {
                 console.log('error', getErrorMessage(err))
 

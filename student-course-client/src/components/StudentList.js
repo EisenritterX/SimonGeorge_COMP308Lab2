@@ -22,9 +22,13 @@ function List(props) {
       .get(apiUrl)
       .then((result) => {
         console.log("result.data:", result.data);
-        setData(result.data);
-        setShowLoading(false);
-      })
+        if(result.data.screen !== 'auth')
+        {       
+          console.log('data in if:', result.data )
+          setData(result.data);
+          setShowLoading(false);
+        }
+        })
       .catch((error) => {
         console.log("error in fetchData:", error);
         setListError(true);
@@ -54,6 +58,7 @@ function List(props) {
     navigate("/show/" + id);
   };
   //
+  console.log(data.length);
   return (
     <div>
       { data.length!==0?
