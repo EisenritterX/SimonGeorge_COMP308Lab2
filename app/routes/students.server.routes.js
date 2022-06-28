@@ -11,7 +11,7 @@ module.exports = function (app) {
     app.post('/', students.create);
     //
     // Set up the 'users' parameterized routes 
-	app.route('/students/:studentID')
+	app.route('/students/:studentNumber')
     .get(students.read)
     .put(students.update)
     .delete(students.delete)
@@ -20,7 +20,7 @@ module.exports = function (app) {
     //any route in which the param occurs, and they will each 
     //be called only once in a request - response cycle, 
     //even if the parameter is matched in multiple routes
-    app.param('studentID', students.studentByID);
+    app.param('studentNumber', students.studentByID);
     //authenticate user
     app.post('/signin', students.authenticate);
     app.get('/signout', students.signout);
