@@ -48,7 +48,7 @@ function App() {
       // 
       if (res.data.screen !== undefined) {
         setScreen(res.data.screen);
-        console.log(res.data.screen)
+        console.log("data.screen is " + res.data.screen)
       }
     } catch (e) {
       setScreen('auth');

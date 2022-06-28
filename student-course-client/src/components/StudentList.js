@@ -4,6 +4,7 @@ import ListGroup from "react-bootstrap/ListGroup";
 import Table from "react-bootstrap/Table";
 import Button from "react-bootstrap/Button";
 import Spinner from "react-bootstrap/Spinner";
+import Login from './Login'
 //
 import { useNavigate } from "react-router-dom";
 //
@@ -55,13 +56,15 @@ function List(props) {
   //
   return (
     <div>
-      {showLoading && (
+      { data.length!==0?
+      <div>
+      {showLoading && 
         <Spinner animation="border" role="status">
           <span className="sr-only">Loading...</span>
         </Spinner>
-      )}
+      }
 
-      <h2>All the vaccine appointments:</h2>
+      <h2>Students Masterlist:</h2>
       <ListGroup>
         <Table>
           <tbody>
@@ -164,17 +167,6 @@ function List(props) {
                       showDetail(item._id);
                     }}
                   >
-                    {item.password}{" "}
-                  </ListGroup.Item>
-                </td>
-                <td>
-                  <ListGroup.Item
-                    key={idx}
-                    action
-                    onClick={() => {
-                      showDetail(item._id);
-                    }}
-                  >
                     {item.enrollDate}{" "}
                   </ListGroup.Item>
                 </td>
@@ -189,22 +181,13 @@ function List(props) {
                     {item.graduationDate}{" "}
                   </ListGroup.Item>
                 </td>
-                <td>
-                  <ListGroup.Item
-                    key={idx}
-                    action
-                    onClick={() => {
-                      showDetail(item._id);
-                    }}
-                  >
-                    {String(item.cancelled)}{" "}
-                  </ListGroup.Item>
-                </td>
               </tr>
             ))}
           </tbody>
         </Table>
       </ListGroup>
+    </div>
+    :<Login/>}
     </div>
   );
 }

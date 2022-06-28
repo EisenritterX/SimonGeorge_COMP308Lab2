@@ -144,6 +144,7 @@ exports.authenticate = function(req, res, next) {
 				//call the next middleware
 				next()
 			} else {
+				console.log("not authenticated");
 				res.json({status:"error", message: "Invalid username/password!!!",
 				data:null});
 			}
