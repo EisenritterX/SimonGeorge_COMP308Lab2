@@ -5,7 +5,7 @@ const bcrypt = require('bcrypt');
 const saltRounds = 10;
 // Define a new 'StudentSchema'
 var StudentSchema = new Schema({
-    studentNumber:{type:Number, unique:true, required: true, validate:[
+    studentNumber:{type:String, unique:true, required: true, validate:[
         (studentNumber)=> studentNumber && studentNumber.length ==9,
         'Student Number has to be 9 digits'
     ]},

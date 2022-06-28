@@ -24,6 +24,7 @@ import Login from './components/Login';
 import Student from './components/Student';
 import Course from './components/Course';
 import StudentList from './components/StudentList';
+import CourseList from './components/CourseList';
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
               <Nav.Link as={Link} to="/student">Student</Nav.Link>
               <Nav.Link as={Link} to="/course">Course</Nav.Link>
               <Nav.Link as={Link} to="/studentList">Student List</Nav.Link>
+              <Nav.Link as={Link} to="/courseList">Course List</Nav.Link>
               {/*<Nav.Link as={Link} to="/list">List of Users</Nav.Link>
               <Nav.Link as={Link} to="/listarticles">List of Articles</Nav.Link>
               <Nav.Link as={Link} to="/create">Sign Up</Nav.Link> */}
@@ -60,12 +62,15 @@ function App() {
           <Route path="student" element= {< Student />}  />
           <Route path="course" element= {< Course />}  />
           <Route path="studentList" element= {< StudentList />}  />
-          {/* <Route path="create" element ={< CreateUser />} />
+          <Route path="courseList" element= {< CourseList />}  />
+          {/* <Route path="create" element ={< CreateUser />} /> */}
+          {/* <Route path="showcourse/:id" element= {< Show />}  /> */}
+          {/* 
           <Route path="list" element= {< List />}  />
           <Route path="listarticles" element= {< ListArticles />}  />
           <Route path="edit/:id" element= {< EditUser />}  />
           <Route path="show/:id" element= {< ShowUser />}  />
-          <Route path="showarticle/:id" element= {< ShowArticle />}  />
+          
           <Route path="editarticle/:id" element= {< EditArticle />}  /> */}
 
         </Routes>

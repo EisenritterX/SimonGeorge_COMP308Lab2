@@ -40,7 +40,7 @@ exports.create = function (req, res, next) {
   console.log("body: " + req.body.studentNumber);
 
   // Use the 'User' instance's 'save' method to save a new user document
-  user.save(function (err) {
+  student.save(function (err) {
     if (err) {
       // Call the next middleware with an error message
       return next(err);
@@ -144,6 +144,7 @@ exports.authenticate = function(req, res, next) {
 				//call the next middleware
 				next()
 			} else {
+				console.log("not authenticated");
 				res.json({status:"error", message: "Invalid username/password!!!",
 				data:null});
 			}
